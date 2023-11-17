@@ -24,6 +24,8 @@ apisix:
     ip: "0.0.0.0"
     port: 9092
 
+  extra_lua_path: "/opt/?.lua"
+
 deployment:
   admin:
     allow_admin:               # http://nginx.org/en/docs/http/ngx_http_access_module.html#allow
@@ -49,3 +51,10 @@ plugin_attr:
     export_addr:
       ip: "0.0.0.0"
       port: 9091
+
+
+plugins:
+  - key-auth
+  - proxy-rewrite
+  - consumer-restriction
+  - consumer-roles
